@@ -1,0 +1,79 @@
+syntax = "proto3";
+
+message AzureDevOpsWorkItem {
+  int32 count = 1;
+  repeated WorkItem value = 2;
+}
+
+message WorkItem {
+  Fields fields = 1;
+  int32 id = 2;
+  repeated Relation relations = 3;
+  int32 rev = 4;
+  string url = 5;
+}
+
+message Fields {
+  // 注意: フィールド名は変更されています
+  int32 priority = 1;
+  string stateChangeDate = 2;
+  string valueArea = 3;
+  float effort = 4;
+  float remainingWork = 5;
+  int32 areaId = 6;
+  string areaLevel1 = 7;
+  string areaPath = 8;
+  Identity authorizedAs = 9;
+  string authorizedDate = 10;
+  Identity changedBy = 11;
+  string changedDate = 12;
+  int32 commentCount = 13;
+  Identity createdBy = 14;
+  string createdDate = 15;
+  string description = 16;
+  int32 systemId = 17;
+  int32 iterationId = 18;
+  string iterationLevel1 = 19;
+  string iterationPath = 20;
+  string nodeName = 21;
+  int32 parent = 22;
+  int32 personId = 23;
+  string reason = 24;
+  int32 rev = 25;
+  string revisedDate = 26;
+  string state = 27;
+  string teamProject = 28;
+  string title = 29;
+  int32 watermark = 30;
+  string workItemType = 31;
+}
+
+message Identity {
+  Links _links = 1;
+  string descriptor = 2;
+  string displayName = 3;
+  string id = 4;
+  string imageUrl = 5;
+  string uniqueName = 6;
+  string url = 7;
+}
+
+message Links {
+  Href avatar = 1;
+}
+
+message Href {
+  string href = 1;
+}
+
+message Relation {
+  RelationAttributes attributes = 1;
+  string rel = 2;
+  string url = 3;
+}
+
+message RelationAttributes {
+  string comment = 1;
+  bool isLocked = 2;
+  string name = 3;
+}
